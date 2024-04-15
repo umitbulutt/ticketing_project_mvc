@@ -1,5 +1,6 @@
 package com.cydeo.controller;
 
+import com.cydeo.dto.RoleDTO;
 import com.cydeo.dto.UserDTO;
 import com.cydeo.entity.Role;
 import com.cydeo.entity.User;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("user")
 public class UserController {
 
     @GetMapping("/create")
@@ -21,9 +22,9 @@ public class UserController {
 
         List<Role> roles = new ArrayList<>();
 
-        model.addAttribute("user",new UserDTO());
-        model.addAttribute("users",roles);
 
-        return "/user/create";
+        model.addAttribute("user",new UserDTO());
+        model.addAttribute("roles", new RoleDTO());
+        return "user/create";
     }
 }
