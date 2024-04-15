@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AbstractMapService <T,ID> {
+public abstract  class AbstractMapService <T,ID> {
 
     public Map<ID,T> map = new HashMap<>();  //DB
 
@@ -26,6 +26,7 @@ public class AbstractMapService <T,ID> {
     void deleteBYId(ID id){
         map.remove(id);
     }
+
 
     //findAll
 
