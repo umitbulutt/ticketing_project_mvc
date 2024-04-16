@@ -12,5 +12,6 @@ public interface CRUDService<T,ID> {
     T findById(ID username);
     List<T> findAll();
     void deleteById(Long id);
+    void update(T object);
 
 }
