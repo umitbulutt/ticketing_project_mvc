@@ -1,6 +1,7 @@
 package com.cydeo.controller;
 
 import com.cydeo.dto.UserDTO;
+import com.cydeo.service.ProjectService;
 import com.cydeo.service.RoleService;
 import com.cydeo.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -13,10 +14,12 @@ public class UserController {
 
     private final RoleService roleService;
     private final UserService userService;
+    private final ProjectService projectService;
 
-    public UserController(RoleService roleService, UserService userService) {
+    public UserController(RoleService roleService, UserService userService, ProjectService projectService) {
         this.roleService = roleService;
         this.userService = userService;
+        this.projectService = projectService;
     }
 
     @GetMapping("/create")
@@ -73,22 +76,14 @@ public class UserController {
     @GetMapping("/delete/{username}")
     public String deleteUser(@PathVariable("username")String username , Model model){
 
-        //what i need to do here?  user,user,roles
 
-        //user object ${user)
-        model.addAttribute("user", userService.findById(username));
-
-        //roles ${roles}
-        model.addAttribute("roles",roleService.findAll());
-
-        //users ${users}
-        model.addAttribute("users",userService.findAll());
 
         userService.deleteById(username);
 
 
         return "redirect:/user/create";
     }
+
 
 
 
