@@ -25,10 +25,7 @@ public class UserServiceImpl extends AbstractMapService<UserDTO,String> implemen
         return super.findAll();
     }
 
-    @Override
-    public void deleteById(Long id) {
 
-    }
 
     @Override
     public void update(UserDTO object) {

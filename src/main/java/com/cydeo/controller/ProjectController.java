@@ -41,8 +41,12 @@ public class ProjectController {
 
         return "redirect:/project/create";
     }
+
+
+
+
     @GetMapping("/delete/{projectCode}")
-    public String deleteProject(@PathVariable("projectCode")String projectCode , Model model){
+    public String deleteProject(@PathVariable("projectCode")String projectCode ){
 
 
 
@@ -51,6 +55,12 @@ public class ProjectController {
 
         return "redirect:/project/create";
     }
+
+
+
+
+
+
 
     @GetMapping("/complete/{projectCode}")
     public String completeProject(@PathVariable("projectCode") String projectCode ){
@@ -62,19 +72,11 @@ public class ProjectController {
 
 
     @GetMapping("/update/{projectCode}")
-    public String editProject(@PathVariable("projectCode")String projectCode , Model model){
+    public String editProject(@PathVariable("projectCode") String projectCode, Model model){
 
-        //what i need to do here?  user,user,roles
-
-        //user object ${user)
-        model.addAttribute("project", projectService.findById(projectCode));
-
-        //roles ${roles}
+        model.addAttribute("project",projectService.findById(projectCode));
         model.addAttribute("managers",userService.findManagers());
-
-        //users ${users}
         model.addAttribute("projects",projectService.findAll());
-
 
         return "/project/update";
     }
@@ -82,7 +84,6 @@ public class ProjectController {
     @PostMapping("/update")
     public String updateProject(@ModelAttribute("project") ProjectDTO project){
 
-        //update that user
         projectService.update(project);
 
         return "redirect:/project/create";

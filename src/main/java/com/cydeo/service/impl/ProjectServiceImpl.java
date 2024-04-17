@@ -30,15 +30,17 @@ public  class ProjectServiceImpl extends AbstractMapService<ProjectDTO,String> i
         return super.findAll();
     }
 
-    @Override
-    public void deleteById(Long id) {
 
-    }
+
+
 
     @Override
     public void deleteById(String projectCode) {
         super.deleteBYId(projectCode);
     }
+
+
+
 
     @Override
     public void complete(ProjectDTO project) {
@@ -47,10 +49,11 @@ public  class ProjectServiceImpl extends AbstractMapService<ProjectDTO,String> i
 
     }
 
-    @Override
     public void update(ProjectDTO object) {
-            super.update(object.getProjectCode(),object);
-    }
 
+
+
+        super.update(object.getProjectCode(),object);
+    }
 
 }
