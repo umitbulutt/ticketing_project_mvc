@@ -8,4 +8,6 @@ public interface UserService extends CRUDService<UserDTO,String> {
 
 
     void deleteById(String username);
+
+    List<UserDTO> findManagers();
 }
